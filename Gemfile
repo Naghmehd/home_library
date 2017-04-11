@@ -27,12 +27,16 @@ gem 'rack-cors'
 #  web server agnostic rack middleware for defining and applying rewrite rules.
 gem 'rack-rewrite'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'active_model_serializers', '~> 0.10.0'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
+
 end
 
 group :development do
