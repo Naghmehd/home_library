@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
+import { User } from '../user';
 
 @Component({
   selector: 'app-new-user-form',
@@ -7,6 +8,7 @@ import { Angular2TokenService } from 'angular2-token';
   styleUrls: ['./new-user-form.component.css']
 })
 export class NewUserFormComponent implements OnInit {
+  model = new User('', '', '');
 
   constructor(private _tokenService: Angular2TokenService) {
     this._tokenService.init({
@@ -19,10 +21,9 @@ export class NewUserFormComponent implements OnInit {
 
   register() {
     this._tokenService.registerAccount({
-      email: 'test@example.com',
-      password: 'password',
-      passwordConfirmation: 'password'
+      email:                this.model.email,
+      password:             this.model.password,
+      passwordConfirmation: this.model.password
     });
   }
-
 }
